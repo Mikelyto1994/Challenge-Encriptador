@@ -160,7 +160,8 @@ main{
 
 .contenedor-resultado p{
     color: #495057;
-    font-size: 25px;
+    font-size: 20px;
+    width: auto;
 }
 
 .contenedor.copiar {
