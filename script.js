@@ -1,100 +1,194 @@
-var botonEncriptar = document.querySelector(".btn-encriptar");
-var botonDesencriptar = document.querySelector(".btn-desencriptar");
-var munieco = document.querySelector(".contenedor-muneco");
-var contenedor = document.querySelector(".contenedor-parrafo");
-var resultado = document.querySelector(".texto-resultado");
-
-botonEncriptar.onclick = encriptar;
-botonDesencriptar.onclick = desencriptar;
-
-function encriptar(){
-    ocultarAdelante();
-    var cajatexto = recuperarTexto()
-    resultado.textContent = encriptarTexto(cajatexto);
+body{
+    background-color: #F3F5FC;
+}
+header{
+    width: 100%;
+    height: 70px;
 }
 
-function desencriptar(){
-    ocultarAdelante();
-    var cajatexto = recuperarTexto()
-    resultado.textContent = desencriptarTexto(cajatexto);
-}
-
-function recuperarTexto(){
-    var cajatexto = document.querySelector(".cajatexto")
-    return cajatexto.value
-}
-
-function ocultarAdelante(){
-    munieco.classList.add("ocultar");
-    contenedor.classList.add("ocultar");
-}
-
-function encriptarTexto(mensaje){
-    var texto = mensaje;
-    var textoFinal = "";
-
-    for(var i = 0; i < texto.length; i++){
-        if(texto[i] == "a"){
-            textoFinal = textoFinal + "mig"
-        }
-        else if(texto[i] == "e"){
-            textoFinal = textoFinal + "key"
-        }
-        else if(texto[i] == "i"){
-            textoFinal = textoFinal + "jos"
-        }
-        else if(texto[i] == "o"){
-            textoFinal = textoFinal + "per"
-        }
-        else if(texto[i] == "u"){
-            textoFinal = textoFinal + "kat"
-        }
-        else{
-            textoFinal = textoFinal + texto[i]
-        }
-    }
-    return textoFinal;
+.logo{
+    height: 30px;
+    position: absolute;
+    left: 2.78%;
+    top: 3.9%;
 
 }
 
-function desencriptarTexto(mensaje){
-    var texto = mensaje;
-    var textoFinal = "";
-
-    for(var i = 0; i < texto.length; i++){
-        if(texto[i] == "a"){
-            textoFinal = textoFinal + "a"
-            i = i+1;
-        }
-        else if(texto[i] == "e"){
-            textoFinal = textoFinal + "e"
-            i = i+4;
-        }
-        else if(texto[i] == "i"){
-            textoFinal = textoFinal + "i"
-            i = i+3;
-        }
-        else if(texto[i] == "o"){
-            textoFinal = textoFinal + "o"
-            i = i+3;
-        }
-        
-        else if(texto[i] == "u"){
-            textoFinal = textoFinal + "u"
-            i = i+3;
-        }
-        else{
-            textoFinal = textoFinal + texto[i];
-        }
-        
-    }
-
-    return textoFinal;
-
+main{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
 }
 
-const btnCopiar = document.querySelector(".btn-copiar"); 
-    btnCopiar.addEventListener("click", copiar = () => {
-    var contenido = document.querySelector(".texto-resultado").textContent;
-    navigator.clipboard.writeText(contenido);
-});
+.contenedor-caja-texto{
+    position: absolute;
+    left: 10.67%;
+    top: 10.40%;
+    width: 65%;
+    height: 58.59%;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cajatexto{
+    width: 80%;
+    height: 100%;
+    border: none;
+    background-color: #F3F5FC ;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    color: #0A3871;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.cajatexto::placeholder{
+    color: #0A3871;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.alerta{
+    position: absolute;
+    top: 83.1%;
+    left: 10.67%;
+    display: flex;
+    color: #495057;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.contenedor-botones{
+    position: absolute;
+    top: 86.43%;
+    left: 10.67%;
+}
+
+.btn-encriptar{
+    width: 350px;
+    height: 67px;
+    border-radius: 15px;
+    background-color: #0A3871;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.btn-desencriptar{
+    width: 350px;
+    height: 67px;
+    border-radius: 15px;
+    background-color: #D8DFE8;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #0A3871 ;
+    font-size: 20px;
+    border: 2px solid #0A3871;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.seccion2{
+    display: inline-block;
+    position: absolute;
+    top: -10%;
+    width:23.78%;
+    height: 105%;
+    left: 72.94%;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+    border-radius: 40px;
+    box-shadow: 0px 24px 32px -8px rgba(0,0,0,0.50);
+}
+
+.contenedor-muneco{
+    position:absolute;
+    scale: 0.5;
+    left: -15px;
+    top: 30px;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+.contenedor-parrafo{
+    position: absolute;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    top: 65.4%;
+    left: 20px;
+}
+
+.contenedor-parrafo h3{
+    font-size: 24px;
+    text-align: center;
+    color: #343A40;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.contenedor-parrafo p{
+    font-size: 16px;
+    text-align: center;
+    color: #495057;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+.contenedor-resultado{
+    position: absolute;
+    top: 100px;
+    width: 320px;
+    height: 450px;
+    padding: 0;
+    box-sizing: border-box;
+    margin-left: 25px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+.contenedor-resultado p{
+    color: #495057;
+    font-size: 20px;
+    width: auto;
+}
+
+.contenedor.copiar {
+    display: flex;
+    position: absolute;
+    bottom: 400px;
+    top: 700px;
+    background-color: aqua;
+    padding-left: 40px;
+}
+
+.btn-copiar {
+    width: 330px;
+    height: 67px;
+    border-radius: 24px;
+    background-color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: #0A3871 ;
+    font-size: 16px;
+    border: 2px solid #0A3871;
+    cursor: pointer;
+    position: absolute;
+    top: 92%;
+    left: 0%;
+}
+
+.ocultar{
+    display: none;
+}
